@@ -1,0 +1,38 @@
+<%- include('partials/header')%>
+
+
+  <div class="container">
+    <div class="row  mt-3 ">
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-10">
+        <img src="<%= campground.image %>" style="width:100%;" alt="">
+       
+         <h1 class="float-right">price:&#8377;<%= campground.price %></h1>
+         <h2><%= campground.name %></h2>
+        <p>
+          <%= campground.desc %>
+        </p>
+      </div>
+      
+    </div>
+    <div class="text-right">
+        <a href="/campground/<%= campground._id %>/comments/new"class="btn btn-success">comments</a>
+      </div>
+      <hr>
+      <% campground.comments.forEach(function(comment){ %>
+        <div class="row">
+          <div class="col-md-12">
+            <strong><%= comment.text %></strong>
+            <p><%= comment.author %></p>
+          </div>
+        </div>
+
+    <% }) %>
+  </div>
+</div>
+
+
+
+  <%- include('partials/footer')%>
